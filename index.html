@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ЗейнетCare — Твой новый рассвет</title>
+    <meta name="description" content="Центр активного развития для людей старшего возраста. Английский, йога, музыка и цифровые технологии в кругу единомышленников.">
+    
+    <!-- Tailwind CSS Script -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        noble: {
+                            800: '#1e3a8a', // Deep blue
+                            900: '#1e293b',
+                        },
+                        golden: {
+                            400: '#facc15',
+                            500: '#eab308',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    animation: {
+                        'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
+                    },
+                    keyframes: {
+                        fadeInUp: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Feather Icons -->
+    <script src="https://unpkg.com/feather-icons"></script>
+
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .glassmorphism {
+                @apply bg-white/10 backdrop-blur-lg border border-white/20 shadow-xl;
+            }
+            .card-hover {
+                @apply transition-all duration-300 hover:shadow-2xl hover:-translate-y-2;
+            }
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+        }
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        .is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        /* Gradient text utility */
+        .text-gradient {
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 antialiased overflow-x-hidden selection:bg-golden-400 selection:text-white">
+
+    <!-- Navbar -->
+    <nav class="fixed w-full z-50 transition-all duration-300 bg-white/90 backdrop-blur-md shadow-sm border-b border-gray-100 py-4">
+        <div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
+            <div class="flex items-center gap-2 cursor-pointer">
+                <i data-feather="sun" class="text-golden-500 w-8 h-8"></i>
+                <span class="text-2xl font-bold bg-gradient-to-r from-noble-800 to-golden-500 text-gradient">ЗейнетCare</span>
+            </div>
+            <div class="hidden md:flex gap-8 items-center font-medium text-gray-600">
+                <a href="#features" class="hover:text-noble-800 transition-colors">Направления</a>
+                <a href="#philosophy" class="hover:text-noble-800 transition-colors">Философия</a>
+                <a href="#gallery" class="hover:text-noble-800 transition-colors">Галерея</a>
+                <a href="#contact" class="px-6 py-2.5 bg-noble-800 text-white rounded-full hover:bg-noble-900 transition-colors shadow-lg hover:shadow-xl font-semibold">Начать</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-screen flex items-center pt-24 overflow-hidden bg-gradient-to-br from-noble-900 via-noble-800 to-golden-500">
+        <!-- Background Overlay (Will use generated image here later) -->
+        <div class="absolute inset-0 opacity-40 mix-blend-overlay">
+            <img id="hero-img-placeholder" src="hero.png" alt="Active Seniors" class="object-cover w-full h-full object-center" />
+        </div>
+        <div class="absolute inset-0 bg-gradient-to-t from-noble-900/90 to-transparent"></div>
+
+        <div class="relative z-10 max-w-7xl mx-auto px-6 w-full text-center md:text-left flex flex-col md:flex-row items-center gap-12">
+            <div class="flex-1 animate-[fadeInUp_1s_ease-out]">
+                <span class="inline-block px-4 py-1.5 rounded-full bg-white/20 text-white text-sm font-medium tracking-wider uppercase mb-6 backdrop-blur-md border border-white/30">
+                    Открыт набор на 2026 год
+                </span>
+                <h1 class="text-5xl md:text-7xl font-bold text-white leading-tight mb-6">
+                    Твой <span class="text-golden-400">новый рассвет</span>
+                </h1>
+                <p class="text-lg md:text-2xl text-gray-200 mb-10 max-w-2xl font-light leading-relaxed">
+                    Центр активного развития для тех, кто готов к новым открытиям. Английский, йога, музыка и цифровые технологии в кругу единомышленников.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+                    <a href="#contact" class="group relative px-8 py-4 bg-golden-500 text-noble-900 font-bold rounded-full text-lg overflow-hidden shadow-[0_0_40px_rgba(250,204,21,0.4)] hover:shadow-[0_0_60px_rgba(250,204,21,0.6)] transition-all">
+                        <span class="relative z-10 flex items-center justify-center gap-2">
+                            Записаться на пробный день
+                            <i data-feather="arrow-right" class="group-hover:translate-x-1 transition-transform"></i>
+                        </span>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Hero Decorative Card -->
+            <div class="hidden lg:block animate-[fadeInUp_1.2s_ease-out]">
+                <div class="glassmorphism rounded-3xl p-8 max-w-sm text-white">
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="w-16 h-16 rounded-full bg-golden-400 flex items-center justify-center">
+                            <i data-feather="heart" class="text-noble-900 w-8 h-8"></i>
+                        </div>
+                        <div>
+                            <p class="font-bold text-xl">Пенсия — это</p>
+                            <p class="text-golden-400 text-sm font-medium">только начало</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-200 font-light text-sm leading-relaxed">Мы помогаем поддерживать тонус, тренировать интеллект и находить новых друзей.</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Scroll indicator -->
+        <div class="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce cursor-pointer opacity-70 hover:opacity-100 transition-opacity">
+            <a href="#features"><i data-feather="chevron-down" class="text-white w-10 h-10"></i></a>
+        </div>
+    </section>
+
+    <!-- Features / Services -->
+    <section id="features" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16 animate-on-scroll">
+                <h2 class="text-sm font-bold tracking-widest text-golden-500 uppercase mb-3">Направления</h2>
+                <h3 class="text-4xl md:text-5xl font-bold text-noble-800">4 Столпа Активности</h3>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Card 1 -->
+                <div class="bg-gray-50 rounded-3xl p-8 border border-gray-100 card-hover animate-on-scroll" style="transition-delay: 100ms;">
+                    <div class="w-14 h-14 bg-blue-100 text-noble-800 rounded-2xl flex items-center justify-center mb-6">
+                        <i data-feather="book-open" class="w-7 h-7"></i>
+                    </div>
+                    <h4 class="text-2xl font-bold mb-3 text-gray-900">Интеллект</h4>
+                    <p class="text-gray-600 font-light leading-relaxed">
+                        Курсы английского языка с нуля. Тренируем память, расширяем кругозор и стираем языковые барьеры.
+                    </p>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="bg-gray-50 rounded-3xl p-8 border border-gray-100 card-hover animate-on-scroll" style="transition-delay: 200ms;">
+                    <div class="w-14 h-14 bg-orange-100 text-orange-600 rounded-2xl flex items-center justify-center mb-6">
+                        <i data-feather="activity" class="w-7 h-7"></i>
+                    </div>
+                    <h4 class="text-2xl font-bold mb-3 text-gray-900">Энергия</h4>
+                    <p class="text-gray-600 font-light leading-relaxed">
+                        Суставная гимнастика, йога и стретчинг под руководством опытных тренеров для легкости в теле.
+                    </p>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="bg-gray-50 rounded-3xl p-8 border border-gray-100 card-hover animate-on-scroll" style="transition-delay: 300ms;">
+                    <div class="w-14 h-14 bg-purple-100 text-purple-600 rounded-2xl flex items-center justify-center mb-6">
+                        <i data-feather="music" class="w-7 h-7"></i>
+                    </div>
+                    <h4 class="text-2xl font-bold mb-3 text-gray-900">Творчество</h4>
+                    <p class="text-gray-600 font-light leading-relaxed">
+                        Уроки игры на домбре, вокал и живопись. Раскройте таланты, на которые раньше не хватало времени.
+                    </p>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="bg-gray-50 rounded-3xl p-8 border border-gray-100 card-hover animate-on-scroll" style="transition-delay: 400ms;">
+                    <div class="w-14 h-14 bg-green-100 text-green-600 rounded-2xl flex items-center justify-center mb-6">
+                        <i data-feather="smartphone" class="w-7 h-7"></i>
+                    </div>
+                    <h4 class="text-2xl font-bold mb-3 text-gray-900">Технологии</h4>
+                    <p class="text-gray-600 font-light leading-relaxed">
+                        Цифровая грамотность: от оплаты коммуналки в приложении до видеозвонков внукам и кибербезопасности.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Philosophy -->
+    <section id="philosophy" class="py-32 bg-noble-900 relative overflow-hidden">
+        <!-- Abstract gradient shapes -->
+        <div class="absolute top-0 right-0 w-96 h-96 bg-golden-500 rounded-full mix-blend-multiply filter blur-[128px] opacity-20"></div>
+        <div class="absolute bottom-0 left-0 w-96 h-96 bg-blue-500 rounded-full mix-blend-multiply filter blur-[128px] opacity-20"></div>
+        
+        <div class="max-w-4xl mx-auto px-6 text-center z-10 relative animate-on-scroll">
+            <i data-feather="award" class="mx-auto w-12 h-12 text-golden-400 mb-8 opacity-80"></i>
+            <h2 class="text-3xl md:text-5xl font-light text-white leading-tight mb-8">
+                «Возраст — это не ограничение, а привилегия. Время, когда можно, наконец, <span class="bg-gradient-to-r from-golden-400 to-yellow-200 text-gradient font-bold">жить для себя</span>».
+            </h2>
+            <div class="w-24 h-1 bg-golden-500 mx-auto rounded-full mt-12"></div>
+        </div>
+    </section>
+
+    <!-- Gallery -->
+    <section id="gallery" class="py-24 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-12 animate-on-scroll">
+                <div>
+                    <h2 class="text-sm font-bold tracking-widest text-golden-500 uppercase mb-3">Сообщество</h2>
+                    <h3 class="text-4xl md:text-5xl font-bold text-noble-800">Наша атмосфера</h3>
+                </div>
+                <p class="text-gray-500 max-w-md mt-4 md:mt-0 font-light">Взгляните на наших участников. Здесь нет места одиночеству — только поддержка и развитие.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="rounded-3xl overflow-hidden h-[400px] shadow-lg animate-on-scroll hover:shadow-xl transition-shadow group">
+                    <img id="gallery-img-1" src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80" alt="Active Elderly" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                </div>
+                <!-- Will add more placeholder image structs, or we use Unsplash random -->
+                <div class="rounded-3xl overflow-hidden h-[400px] shadow-lg animate-on-scroll hover:shadow-xl transition-shadow group" style="transition-delay: 200ms;">
+                    <img src="https://images.unsplash.com/photo-1542385151-efd5e1dc7fb0?auto=format&fit=crop&q=80" alt="Yoga" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form -->
+    <section id="contact" class="py-24 bg-white relative">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            
+            <div class="animate-on-scroll">
+                <h2 class="text-sm font-bold tracking-widest text-golden-500 uppercase mb-3">Сделайте первый шаг</h2>
+                <h3 class="text-4xl md:text-5xl font-bold text-noble-800 mb-6">Подарите родителям вторую молодость</h3>
+                <p class="text-gray-600 text-lg font-light leading-relaxed mb-10">
+                    Хотите, чтобы ваши близкие проводили время с пользой, общались и развивались? Оставьте заявку, и мы свяжемся с вами для подбора программы.
+                </p>
+                <div class="space-y-6">
+                    <div class="flex items-center gap-4 text-gray-700">
+                        <div class="w-12 h-12 bg-gray-50 rounded-full flex items-center justify-center text-noble-800">
+                            <i data-feather="map-pin"></i>
+                        </div>
+                        <span class="font-medium text-lg">г. Астана, ул. Достык, 16</span>
+                    </div>
+                    <div class="flex items-center gap-4 text-gray-700">
+                        <div class="w-12 h-12 bg-gray-50 rounded-full flex items-center justify-center text-noble-800">
+                            <i data-feather="phone"></i>
+                        </div>
+                        <span class="font-medium text-lg">+7 (777) 123-45-67</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white p-10 rounded-[2.5rem] shadow-2xl border border-gray-100 animate-on-scroll" style="transition-delay: 200ms;">
+                <form class="space-y-6">
+                    <div>
+                        <label class="block text-sm font-semibold text-gray-700 mb-2" for="name">Ваше имя</label>
+                        <input type="text" id="name" class="w-full px-5 py-4 rounded-xl border border-gray-200 focus:border-noble-800 focus:ring-2 focus:ring-noble-800/20 transition-colors text-lg" placeholder="Алия">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-semibold text-gray-700 mb-2" for="phone">Номер телефона</label>
+                        <input type="tel" id="phone" class="w-full px-5 py-4 rounded-xl border border-gray-200 focus:border-noble-800 focus:ring-2 focus:ring-noble-800/20 transition-colors text-lg" placeholder="+7 (___) ___-__-__">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-semibold text-gray-700 mb-2" for="parent">Возраст родителя</label>
+                        <select id="parent" class="w-full px-5 py-4 rounded-xl border border-gray-200 focus:border-noble-800 focus:ring-2 focus:ring-noble-800/20 transition-colors text-lg cursor-pointer bg-white">
+                            <option>55 - 65 лет</option>
+                            <option>66 - 75 лет</option>
+                            <option>Старше 75 лет</option>
+                        </select>
+                    </div>
+                    <button type="button" class="w-full py-4 mt-4 bg-noble-800 text-white font-bold rounded-xl text-lg hover:bg-noble-900 hover:shadow-lg transition-all focus:ring-4 focus:ring-noble-800/30 flex justify-center items-center gap-2">
+                        Оставить заявку
+                        <i data-feather="send" class="w-5 h-5"></i>
+                    </button>
+                    <p class="text-xs text-gray-400 text-center mt-4">Нажимая кнопку, вы соглашаетесь с политикой конфиденциальности.</p>
+                </form>
+            </div>
+            
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-noble-900 border-t border-white/10 pt-16 pb-8 text-gray-400">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-8 mb-12">
+                <div class="flex items-center gap-2">
+                    <i data-feather="sun" class="text-golden-500 w-8 h-8"></i>
+                    <span class="text-2xl font-bold text-white">ЗейнетCare</span>
+                </div>
+                <div class="flex gap-6">
+                    <a href="#" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-white/10 hover:text-white transition-colors">
+                        <i data-feather="instagram" class="w-5 h-5"></i>
+                    </a>
+                    <a href="#" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-white/10 hover:text-white transition-colors">
+                        <i data-feather="facebook" class="w-5 h-5"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="text-center text-sm border-t border-white/10 pt-8">
+                &copy; 2026 ЗейнетCare. Все права защищены. Дизайн создан с заботой.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Init Scripts -->
+    <script>
+        // Init Feather Icons
+        feather.replace();
+
+        // Scroll Animation Observer Setup
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.animate-on-scroll').forEach((elem) => {
+            observer.observe(elem);
+        });
+    </script>
+</body>
+</html>
